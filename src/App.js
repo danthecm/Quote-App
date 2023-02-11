@@ -1,11 +1,15 @@
 import { Outlet } from "react-router-dom";
 import MainNavigation from "./components/layout/MainNavigation";
+
+import "./App.css";
 function App() {
   return (
-    <div>
+    <>
       <MainNavigation />
-      <Outlet />
-    </div>
+      <main>
+        <Outlet />
+      </main>
+    </>
   );
 }
 
