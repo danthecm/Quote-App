@@ -4,6 +4,7 @@ import AddQuote from "./pages/AddQuote";
 import AllQuotes from "./pages/AllQuotes";
 import QuoteDetail from "./pages/QuoteDetail";
 import Comments from "./components/comments/Comments";
+import NotFound from "./pages/NotFound";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -32,6 +33,7 @@ const router = createBrowserRouter([
         ],
       },
     ],
+    errorElement: <NotFound />,
   },
 ]);
 
