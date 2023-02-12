@@ -11,7 +11,7 @@ const QuoteList = (props) => {
   const quotes = props.quotes;
 
   const changeSortingHandler = () => {
-    navigate("/quotes?sort=" + (isAscending ? "dsc" : "asc"));
+    navigate("./?sort=" + (isAscending ? "dsc" : "asc"));
   };
 
   const params = new URLSearchParams(location.search);
