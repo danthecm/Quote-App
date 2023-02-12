@@ -7,6 +7,8 @@ import { DUMMY_QUOTES } from "./AllQuotes";
 const QuoteDetail = () => {
   const params = useParams();
 
+  console.log("Params: ", params);
+
   const quote = DUMMY_QUOTES.find((quote) => quote.id === params.quoteID);
   console.log("The Quote is: ", quote);
   if (!quote) {

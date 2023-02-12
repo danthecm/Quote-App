@@ -4,6 +4,7 @@ import { DUMMY_QUOTES } from "./AllQuotes";
 
 const AddQuote = () => {
   const navigate = useNavigate();
+
   const addQuoteHandler = (quote) => {
     quote.id = Math.floor(Math.random() * 100);
     console.log("Quote ID: ", quote.id);
