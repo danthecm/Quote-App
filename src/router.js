@@ -1,4 +1,4 @@
-import { createBrowserRouter, Navigate } from "react-router-dom";
+import { createBrowserRouter, Link, Navigate } from "react-router-dom";
 import App from "./App";
 import AddQuote from "./pages/AddQuote";
 import AllQuotes from "./pages/AllQuotes";
@@ -26,6 +26,16 @@ const router = createBrowserRouter([
         path: "quotes/:quoteID",
         element: <QuoteDetail />,
         children: [
+          {
+            index: true,
+            element: (
+              <div className="centered">
+                <Link className="btn--flat" to={`./comments`}>
+                  Load Comments{" "}
+                </Link>
+              </div>
+            ),
+          },
           {
             path: "comments",
             element: <Comments />,
