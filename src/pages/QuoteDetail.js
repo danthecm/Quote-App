@@ -31,7 +31,7 @@ const QuoteDetail = () => {
     return <div className="centered">{error}</div>;
   }
 
-  if (!quote || !quote?.text) {
+  if (!quote?.text) {
     return <NoQuotesFound />;
   }
 
