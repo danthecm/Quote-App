@@ -12,7 +12,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Navigate to="/quotes" />,
+        element: <Navigate replace to="/quotes" />,
       },
       {
         path: "/quotes",
