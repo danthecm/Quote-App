@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import { Outlet, useParams } from "react-router-dom";
 import NoQuotesFound from "../components/quotes/NoQuotesFound";
 import HighlightedQuote from "../components/quotes/HighlightedQuote";
@@ -8,13 +8,17 @@ import LoadingSpinner from "../components/UI/LoadingSpinner";
 
 const QuoteDetail = () => {
   const params = useParams();
-  const { sendRequest, status, data: quote } = useHttp(getSingleQuote, true);
+  const quoteID = useMemo(() => params.quoteID, [params]);
+  const {
+    sendRequest,
+    status,
+    data: quote,
+    error,
+  } = useHttp(getSingleQuote, true);
 
   useEffect(() => {
-    sendRequest(params.quoteID);
-  }, [sendRequest, params]);
-
-  console.log("Params: ", params);
+    sendRequest(quoteID);
+  }, [sendRequest, quoteID]);
 
   if (status === "pending") {
     return (
@@ -23,8 +27,11 @@ const QuoteDetail = () => {
       </div>
     );
   }
+  if (error) {
+    return <div className="centered">{error}</div>;
+  }
 
-  if (!quote) {
+  if (!quote || !quote?.text) {
     return <NoQuotesFound />;
   }
 
